@@ -23,7 +23,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class RegistroActivity extends AppCompatActivity {
 
     Button btregistar;
@@ -43,6 +42,7 @@ public class RegistroActivity extends AppCompatActivity {
         txtPassword= findViewById(R.id.txtPassword);
         btregistar= findViewById(R.id.btregistar);
 
+        //Accion del boton registrar
         btregistar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
