@@ -1,4 +1,4 @@
-package com.example.whatsapp;
+package com.example.whatsapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.whatsapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,16 +27,16 @@ import java.util.Map;
 public class RegistroActivity extends AppCompatActivity {
 
     Button btregistar;
-    EditText txtName, txtEmail, txtPassword;
-    FirebaseFirestore mFirestore;
-    FirebaseAuth mAuth;
-
+    private EditText txtName, txtEmail, txtPassword;
+    private FirebaseFirestore mFirestore;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_registro);
+        this.setTitle("Registro");
 
         txtName= findViewById(R.id.txtName);
         txtEmail= findViewById(R.id.txtEmail);
