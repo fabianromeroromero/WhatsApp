@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -30,6 +31,8 @@ public class RegistroActivity extends AppCompatActivity {
     private FirebaseFirestore mFirestore;
     private FirebaseAuth mAuth;
 
+    DatabaseReference reference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,8 @@ public class RegistroActivity extends AppCompatActivity {
         txtEmail= findViewById(R.id.txtEmail);
         txtPassword= findViewById(R.id.txtPassword);
         btregistar= findViewById(R.id.btregistar);
+
+        mAuth = FirebaseAuth.getInstance();
 
         //Accion del boton registrar
         btregistar.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +80,7 @@ public class RegistroActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
                         finish();
-                        startActivity(new Intent(RegistroActivity.this, MainActivity.class));
+                        startActivity(new Intent(RegistroActivity.this, LoginActivity.class));
                         Toast.makeText(RegistroActivity.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -93,9 +98,5 @@ public class RegistroActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return false;
-    }
+
 }
